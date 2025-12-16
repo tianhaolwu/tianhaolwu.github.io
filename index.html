@@ -18,19 +18,24 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet" type="text/css">
 
   <style>
-    /* Optional: keep text nicely readable */
     body {
       text-align: justify;
       hyphens: auto;
     }
 
-    /* Name font on sidebar */
     .name-heading {
       font-family: 'Oswald', sans-serif;
       font-size: 32px;
     }
 
-    /* Abstract toggle styles */
+    /* smaller main photo */
+    .main-photo {
+      max-width: 60%;   /* adjust this number if you want it even smaller/bigger */
+      margin: 0 auto;
+      height: auto;
+      display: block;
+    }
+
     .abstract-toggle {
       font-style: italic;
       text-decoration: underline;
@@ -81,8 +86,8 @@
     <!-- Main Column -->
     <div class="col-md-8" style="min-height: 60vh;">
 
-      <!-- Main Image -->
-      <img class="img-responsive" src="Website Picture.jpg" alt="Photo of Tianhao Wu"><br>
+      <!-- Main Image (smaller) -->
+      <img class="img-responsive main-photo" src="Website Picture.jpg" alt="Photo of Tianhao Wu"><br>
 
       <!-- About -->
       <div style="margin-top:3%; text-align:justify;">
@@ -138,18 +143,12 @@
       </p>
     </div>
 
-    <!-- Sidebar: Links -->
-    <div class="col-md-4" style="margin-top:2%">
-      <dd><a href="Tianhao Wu_Academic Curriculum Vitae.pdf">Curriculum Vitae (PDF)</a></dd>
-      <dd><a href="https://knowlesreview.lse.ac.uk/">Knowles Review of Economic History</a></dd>
-      <dd><a href="https://www.charlesrivereconomicslabs.org/">Charles River Economic Labs</a></dd>
-    </div>
+    <!-- (links sidebar removed) -->
 
     <!-- Research Section -->
     <div class="col-md-8" id="research" style="margin-top:3%; min-height: 60vh;">
       <h2>Research</h2>
 
-      <!-- Research Assistantships -->
       <h3>Research Assistantships</h3>
       <ul>
         <li>
@@ -170,7 +169,6 @@
         </li>
       </ul>
 
-      <!-- Working Papers -->
       <h3>Working Papers</h3>
       <ul>
         <li class="paper" words="COVID-19, social protection, labor markets">
@@ -220,7 +218,6 @@
         </li>
       </ul>
 
-      <!-- Conference Presentations -->
       <h3>Conference Presentations</h3>
       <ul>
         <li>Asian Association for Public Administration Annual Conference, Tsinghua University, 2025.</li>
@@ -230,11 +227,9 @@
   </div>
 </div>
 
-<!-- Theme credit -->
 <a style="color:#b5bec9;font-size:0.8em; float:right;"
    href="https://github.com/mavroudisv/plain-academic">Plain Academic</a>
 
-<!-- Abstract toggle script -->
 <script>
   $(document).ready(function () {
     $('.abstract-toggle').on('click', function () {
@@ -252,4 +247,5 @@
 
 </body>
 </html>
+
 
