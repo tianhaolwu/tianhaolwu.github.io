@@ -28,12 +28,12 @@
       font-size: 32px;
     }
 
-    /* smaller main photo */
+    /* photo smaller */
     .main-photo {
-      max-width: 30%;   /* adjust this number if you want it even smaller/bigger */
-      margin: 0 auto;
+      max-width: 90%;   /* shrink within its column */
       height: auto;
       display: block;
+      margin: 0 auto;
     }
 
     .abstract-toggle {
@@ -81,55 +81,17 @@
 
 <!-- Page Content -->
 <div class="container">
-  <div class="row">
 
-    <!-- Main Column -->
-    <div class="col-md-8" style="min-height: 60vh;">
+  <!-- Top row: photo left, all text right -->
+  <div class="row" style="margin-bottom: 40px;">
 
-      <!-- Main Image (smaller) -->
-      <img class="img-responsive main-photo" src="Website Picture.jpg" alt="Photo of Tianhao Wu"><br>
-
-      <!-- About -->
-      <div style="margin-top:3%; text-align:justify;">
-        <p>
-          I am currently a third-year visiting undergraduate student at Harvard University and a BSc Economic History
-          and Geography candidate at the London School of Economics (LSE). At LSE, I was the first student to be
-          awarded with both the
-          <a href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">
-            Lilian Knowles Prize for the Best Set of First-Year Marks
-          </a>
-          and the
-          <a href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">
-            Baines Prize for the Best Mark in EH101
-          </a>.
-          I am also the Co-Editor-in-Chief for the
-          <a href="https://knowlesreview.lse.ac.uk/">Knowles Review of Economic History</a>, a journal published by the
-          LSE Houghton Street Press.
-          At Harvard College, I am a research associate at the
-          <a href="https://www.charlesrivereconomicslabs.org/">Charles River Economic Labs</a>
-          and am affiliated with
-          <a href="https://www.iq.harvard.edu/">The Institute for Quantitative Social Science</a>.
-          In the summer of 2025, I worked as a policy intern at the State Administration for Market Regulation of China,
-          and currently I am an intern at the United Nations.
-        </p>
-
-        <p>
-          I aspire to conduct research that translates into real-world policy influence. I am broadly interested in
-          development policy, political economy, energy policy, and international economics, with a regional focus on
-          China and East Asia.
-        </p>
-
-        <p>
-          You can contact me by email at
-          <a href="mailto:twu@college.harvard.edu">twu@college.harvard.edu</a>
-          or
-          <a href="mailto:t.wu36@lse.ac.uk">t.wu36@lse.ac.uk</a>.
-        </p>
-      </div>
+    <!-- Photo -->
+    <div class="col-md-5">
+      <img class="img-responsive main-photo" src="Website Picture.jpg" alt="Photo of Tianhao Wu">
     </div>
 
-    <!-- Sidebar: Name + Contact -->
-    <div class="col-md-4">
+    <!-- Name + contact + full bio -->
+    <div class="col-md-7">
       <div class="name-heading"><b>Tianhao Wu</b></div><br>
       <p>
         <b>
@@ -141,12 +103,47 @@
         Visiting Student, Harvard University<br>
         BSc Economic History &amp; Geography, LSE<br>
       </p>
+
+      <p>
+        I am currently a third-year visiting undergraduate student at Harvard University and a BSc Economic History
+        and Geography candidate at the London School of Economics (LSE). At LSE, I was the first student to be
+        awarded with both the
+        <a href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">
+          Lilian Knowles Prize for the Best Set of First-Year Marks
+        </a>
+        and the
+        <a href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">
+          Baines Prize for the Best Mark in EH101
+        </a>.
+        I am also the Co-Editor-in-Chief for the
+        <a href="https://knowlesreview.lse.ac.uk/">Knowles Review of Economic History</a>, a journal published by the
+        LSE Houghton Street Press.
+        At Harvard College, I am a research associate at the
+        <a href="https://www.charlesrivereconomicslabs.org/">Charles River Economic Labs</a>
+        and am affiliated with
+        <a href="https://www.iq.harvard.edu/">The Institute for Quantitative Social Science</a>.
+        In the summer of 2025, I worked as a policy intern at the State Administration for Market Regulation of China,
+        and currently I am an intern at the United Nations.
+      </p>
+
+      <p>
+        I aspire to conduct research that translates into real-world policy influence. I am broadly interested in
+        development policy, political economy, energy policy, and international economics, with a regional focus on
+        China and East Asia.
+      </p>
+
+      <p>
+        You can contact me by email at
+        <a href="mailto:twu@college.harvard.edu">twu@college.harvard.edu</a>
+        or
+        <a href="mailto:t.wu36@lse.ac.uk">t.wu36@lse.ac.uk</a>.
+      </p>
     </div>
+  </div>
 
-    <!-- (links sidebar removed) -->
-
-    <!-- Research Section -->
-    <div class="col-md-8" id="research" style="margin-top:3%; min-height: 60vh;">
+  <!-- Research Section -->
+  <div class="row" id="research">
+    <div class="col-md-8" style="min-height: 60vh;">
       <h2>Research</h2>
 
       <h3>Research Assistantships</h3>
@@ -223,8 +220,8 @@
         <li>Asian Association for Public Administration Annual Conference, Tsinghua University, 2025.</li>
       </ul>
     </div>
-
   </div>
+
 </div>
 
 <a style="color:#b5bec9;font-size:0.8em; float:right;"
