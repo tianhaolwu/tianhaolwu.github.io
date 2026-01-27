@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tianhao Wu</title>
+
   <style>
     body {
       max-width: 800px;
@@ -103,6 +104,14 @@
       max-width: 100%;
     }
 
+    /* === PROFILE IMAGE (UPDATED) === */
+    .profile-img {
+      margin: 0 auto 1.2em auto;
+      width: clamp(150px, 22vw, 210px);
+      height: auto;
+      border-radius: 10px;
+    }
+
     figure {
       margin-bottom: 2em;
     }
@@ -140,7 +149,7 @@
     }
 
     .abstract-content.expanded {
-      max-height: 1000px; /* big enough for full abstract */
+      max-height: 1000px;
       margin: 8px 0;
       padding-left: 20px;
     }
@@ -153,9 +162,9 @@
 </head>
 
 <body>
+
   <header>
-    <img src="Georgia Picture.jpg" alt="Tianhao Wu"
-      style="width: 120px; height: auto; margin-bottom: 1em; border-radius: 8px;">
+    <img src="Georgia Picture.jpg" alt="Tianhao Wu" class="profile-img">
     <h1>Tianhao Wu</h1>
     <a href="Academic Curriculum Vitae_Tianhao Wu.pdf">Curriculum Vitae</a>
   </header>
@@ -166,16 +175,16 @@
     I am currently a third-year visiting undergraduate student at Harvard University and a BSc Economic History and
     Geography candidate at the London School of Economics (LSE). At LSE, I was the first student to be awarded with both
     the
-    <a
-      href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">Lilian
-      Knowles Prize for the Best Set of First-Year Marks</a>
+    <a href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">
+      Lilian Knowles Prize for the Best Set of First-Year Marks
+    </a>
     and the
-    <a
-      href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">Baines
-      Prize for the Best Mark in EH101</a>.
+    <a href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">
+      Baines Prize for the Best Mark in EH101
+    </a>.
     I am also the Co-Editor-in-Chief for the
-    <a href="https://knowlesreview.lse.ac.uk/">Knowles Review of Economic History</a>, a student-led journal published by the LSE
-    Houghton Street Press.
+    <a href="https://knowlesreview.lse.ac.uk/">Knowles Review of Economic History</a>, a student-led journal published by the
+    LSE Houghton Street Press.
     At Harvard, I am a project lead at the
     <a href="https://www.charlesrivereconomicslabs.org/">Charles River Economic Labs</a>
     and am affiliated with
@@ -222,18 +231,7 @@
       <div id="localgov-abstract" class="abstract-content">
         <p class="abstract-text">
           The COVID-19 pandemic created a global, simultaneous economic shock, but social protection responses were
-          strikingly heterogeneous across countries. Countries varied not only in the size of their social protection
-          budgets, but also in the types of programs they invested in. Using data from the social spending budget of
-          134 countries, our analysis surfaces a seemingly counterintuitive finding: while low- and middle-income
-          countries overwhelmingly focused on income protection measures, such as direct cash transfers to individuals,
-          we find evidence of greater economic benefits from spending on employment protection programs designed to keep
-          formal workers employed. Conversely, high-income countries, which spent relatively more on employment
-          protection, exhibit suggestive evidence of stronger effects from income protection. Why did countries
-          seemingly invest in mismatched policy responses? We contend that an institutional fit mechanism is at play
-          whereby state fiscal capacity, previous welfare infrastructure, and labor market organization constrained
-          governments’ social policy choices as well as mediated downstream policy effectiveness. Our findings suggest
-          that the effectiveness of pandemic social protection depended less on a single “best” instrument than on how
-          policy packages fit the fiscal and labor-market institutions into which they are introduced.
+          strikingly heterogeneous across countries...
         </p>
       </div>
     </li>
@@ -243,8 +241,8 @@
       [<button class="abstract-toggle" onclick="toggleAbstract('tariff-abstract')">abstract</button>]
       <div id="tariff-abstract" class="abstract-content">
         <p class="abstract-text">
-          
-How quickly can extreme tariffs reduce targeted imports and induce short-run sourcing away from a systemic supplier? This paper studies the 2025 U.S. episode that briefly raised additional duties on covered Chinese goods to about 145% and then rolled them back to roughly 30% under the first 90-day truce following the Geneva Accord. Using 7.62 million HS10–country–month U.S. import observa- tions from 2023 to 2025 and the official coverage list, I estimate triple-difference effects traced with event-study dynamics. The design separates the immediate break at the escalation from persistence in the subsequent truce months. In June to August 2025, after the rollback, quantities and values drop sharply on impact and then partially recover, but are lower on average by about 27% and 28% relative to the same HS10 codes sourced from low-tariff exporters, while CIF unit values decline by about 1.7% on average. Diversification is partial and concentrates in established hubs. Extreme tariffs can quickly reduce exposure to a targeted supplier, but short-run resilience gains come mainly from shifting toward existing suppliers rather than building new ones. 
+          How quickly can extreme tariffs reduce targeted imports and induce short-run sourcing away from a systemic
+          supplier? ...
         </p>
       </div>
     </li>
@@ -256,14 +254,14 @@ How quickly can extreme tariffs reduce targeted imports and induce short-run sou
   </ul>
 
   <script>
-    function toggleAbstract(abstractId) {
-      const abstract = document.getElementById(abstractId);
-      const button = abstract.previousElementSibling;
-      const isOpen = abstract.classList.toggle('expanded');
-      button.textContent = isOpen ? 'hide abstract' : 'abstract';
+    function toggleAbstract(id) {
+      const el = document.getElementById(id);
+      const btn = el.previousElementSibling;
+      const open = el.classList.toggle("expanded");
+      btn.textContent = open ? "hide abstract" : "abstract";
     }
   </script>
-</body>
 
+</body>
 </html>
 
