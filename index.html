@@ -8,18 +8,13 @@
 
   <style>
     body {
-      max-width: 800px;
+      max-width: 900px;               /* a bit wider to support 2-column layout */
       margin: auto;
-      padding: 1em;
+      padding: 1.2em;
       text-align: justify;
       hyphens: auto;
       background-color: #121212;
       color: #ffffff;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 2em;
     }
 
     h1,
@@ -40,24 +35,67 @@
       font-style: italic;
     }
 
-    date {
+    hr {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      margin: 1.2em 0;
+    }
+
+    /* ====== NEW: TWO-COLUMN HEADER LAYOUT (Noah-style) ====== */
+    header {
+      display: flex;
+      gap: 2.2em;
+      align-items: flex-start;
+      margin-bottom: 1.2em;
+    }
+
+    .sidebar {
+      flex: 0 0 240px;               /* fixed-ish left column */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;        /* left aligned like Noah site */
+    }
+
+    .main {
+      flex: 1;
+      min-width: 0;                   /* prevents overflow in flex layouts */
+    }
+
+    /* Profile image: left column, not centered */
+    .profile-img {
+      width: 210px;                   /* Noah-like size */
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin: 0 0 1em 0;
       display: block;
-      text-align: right;
-      font-style: italic;
     }
 
-    .date {
-      text-align: right;
-      font-style: italic;
+    /* Big stacked name like the screenshot */
+    .name {
+      font-size: 2.2rem;
+      line-height: 1.05;
+      margin: 0 0 0.6em 0;
+      text-align: left;
+      font-weight: 700;
     }
 
-    footer {
-      text-align: center;
-      border-top: 2px solid black;
-      margin-top: 2em;
-      padding: 1em;
+    .sidebar p {
+      margin: 0.2em 0;
+      text-align: left;
     }
 
+    .titleblock {
+      margin-top: 0.2em;
+      margin-bottom: 0.8em;
+    }
+
+    /* Keep your general typography readable in the right column */
+    .main p {
+      margin-top: 0;
+    }
+
+    /* Tables / code as you had */
     pre {
       margin-left: 3em;
     }
@@ -97,30 +135,7 @@
       text-align: right;
     }
 
-    img {
-      display: block;
-      margin: auto;
-      height: auto;
-      max-width: 100%;
-    }
-
-    /* === PROFILE IMAGE (UPDATED) === */
-    .profile-img {
-      margin: 0 auto 1.2em auto;
-      width: clamp(150px, 22vw, 210px);
-      height: auto;
-      border-radius: 10px;
-    }
-
-    figure {
-      margin-bottom: 2em;
-    }
-
-    figcaption {
-      text-align: center;
-    }
-
-    /* Abstract toggle styles */
+    /* Abstract toggle styles (kept) */
     .abstract-toggle {
       color: #ffffff;
       font-style: italic;
@@ -158,48 +173,77 @@
       margin: 0;
       padding: 0;
     }
+
+    /* ====== NEW: Responsive behavior ====== */
+    @media (max-width: 760px) {
+      header {
+        flex-direction: column;
+        gap: 1.2em;
+      }
+
+      .sidebar {
+        flex: 1 1 auto;
+      }
+
+      .profile-img {
+        width: clamp(160px, 55vw, 240px);
+      }
+    }
   </style>
 </head>
 
 <body>
 
+  <!-- NEW HEADER: left sidebar + right intro -->
   <header>
-    <img src="Georgia Picture.jpg" alt="Tianhao Wu" class="profile-img">
-    <h1>Tianhao Wu</h1>
-    <a href="Academic Curriculum Vitae_Tianhao Wu.pdf">Curriculum Vitae</a>
+    <div class="sidebar">
+      <img src="Georgia Picture.jpg" alt="Tianhao Wu" class="profile-img">
+
+      <!-- Stacked name (Noah-style) -->
+      <h1 class="name">Tianhao<br>Wu</h1>
+
+      <div class="titleblock">
+        <p>Visiting Undergraduate Student</p>
+        <p>Harvard University</p>
+        <p>BSc Economic History &amp; Geography</p>
+        <p>London School of Economics (LSE)</p>
+      </div>
+
+      <p><a href="Academic Curriculum Vitae_Tianhao Wu.pdf">Curriculum Vitae</a></p>
+    </div>
+
+    <div class="main">
+      <p>
+        I am currently a third-year visiting undergraduate student at Harvard University and a BSc Economic History and
+        Geography candidate at the London School of Economics (LSE). At LSE, I was the first student to be awarded with both
+        the
+        <a href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">
+          Lilian Knowles Prize for the Best Set of First-Year Marks
+        </a>
+        and the
+        <a href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">
+          Baines Prize for the Best Mark in EH101
+        </a>.
+        I am also the Co-Editor-in-Chief for the
+        <a href="https://knowlesreview.lse.ac.uk/">Knowles Review of Economic History</a>, a student-led journal published by the
+        LSE Houghton Street Press.
+        At Harvard, I am a project lead at the
+        <a href="https://www.charlesrivereconomicslabs.org/">Charles River Economic Labs</a>
+        and am affiliated with
+        <a href="https://www.iq.harvard.edu/">The Institute for Quantitative Social Science</a>.
+        In the summer of 2025, I worked as a policy intern at the State Administration for Market Regulation of China, and
+        currently I am an intern at the United Nations ESCAP's Macroeconomic and Financing for Development Division.
+      </p>
+
+      <p>
+        I aspire to conduct research that translates into real-world policy influence. I am broadly interested in
+        development policy, political economy, energy policy, and international economics, with a regional focus on China
+        and East Asia.
+      </p>
+
+      <p>You can contact me by email at twu@college.harvard.edu or t.wu36@lse.ac.uk.</p>
+    </div>
   </header>
-
-  <hr />
-
-  <p>
-    I am currently a third-year visiting undergraduate student at Harvard University and a BSc Economic History and
-    Geography candidate at the London School of Economics (LSE). At LSE, I was the first student to be awarded with both
-    the
-    <a href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">
-      Lilian Knowles Prize for the Best Set of First-Year Marks
-    </a>
-    and the
-    <a href="https://www.lse.ac.uk/Economic-History/Study/Current-students/student-community/student-prizewinners/2023-24-Student-Prize-Winners">
-      Baines Prize for the Best Mark in EH101
-    </a>.
-    I am also the Co-Editor-in-Chief for the
-    <a href="https://knowlesreview.lse.ac.uk/">Knowles Review of Economic History</a>, a student-led journal published by the
-    LSE Houghton Street Press.
-    At Harvard, I am a project lead at the
-    <a href="https://www.charlesrivereconomicslabs.org/">Charles River Economic Labs</a>
-    and am affiliated with
-    <a href="https://www.iq.harvard.edu/">The Institute for Quantitative Social Science</a>.
-    In the summer of 2025, I worked as a policy intern at the State Administration for Market Regulation of China, and
-    currently I am an intern at the United Nations ESCAP's Macroeconomic and Financing for Development Division.
-  </p>
-
-  <p>
-    I aspire to conduct research that translates into real-world policy influence. I am broadly interested in
-    development policy, political economy, energy policy, and international economics, with a regional focus on China
-    and East Asia.
-  </p>
-
-  <p>You can contact me by email at twu@college.harvard.edu or t.wu36@lse.ac.uk.</p>
 
   <hr />
 
@@ -264,4 +308,5 @@
 
 </body>
 </html>
+
 
