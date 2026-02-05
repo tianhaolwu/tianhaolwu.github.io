@@ -8,7 +8,7 @@
 
   <style>
     body {
-      max-width: 900px;               /* a bit wider to support 2-column layout */
+      max-width: 900px;
       margin: auto;
       padding: 1.2em;
       text-align: justify;
@@ -41,7 +41,6 @@
       margin: 1.2em 0;
     }
 
-    /* ====== NEW: TWO-COLUMN HEADER LAYOUT (Noah-style) ====== */
     header {
       display: flex;
       gap: 2.2em;
@@ -50,20 +49,19 @@
     }
 
     .sidebar {
-      flex: 0 0 240px;               /* fixed-ish left column */
+      flex: 0 0 240px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;        /* left aligned like Noah site */
+      align-items: flex-start;
     }
 
     .main {
       flex: 1;
-      min-width: 0;                   /* prevents overflow in flex layouts */
+      min-width: 0;
     }
 
-    /* Profile image: left column, not centered */
     .profile-img {
-      width: 210px;                   /* Noah-like size */
+      width: 210px;
       max-width: 100%;
       height: auto;
       border-radius: 6px;
@@ -71,7 +69,6 @@
       display: block;
     }
 
-    /* Big stacked name like the screenshot */
     .name {
       font-size: 2.2rem;
       line-height: 1.05;
@@ -85,17 +82,10 @@
       text-align: left;
     }
 
-    .titleblock {
-      margin-top: 0.2em;
-      margin-bottom: 0.8em;
-    }
-
-    /* Keep your general typography readable in the right column */
     .main p {
       margin-top: 0;
     }
 
-    /* Tables / code as you had */
     pre {
       margin-left: 3em;
     }
@@ -135,7 +125,7 @@
       text-align: right;
     }
 
-    /* Abstract toggle styles (kept) */
+    /* Abstract toggle styles */
     .abstract-toggle {
       color: #ffffff;
       font-style: italic;
@@ -155,16 +145,19 @@
       text-decoration: underline;
     }
 
+    /* IMPORTANT FIX:
+       - We animate max-height, but set the *actual* max-height dynamically in JS (scrollHeight),
+         so it never clips.
+    */
     .abstract-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+      transition: max-height 0.35s ease, margin 0.35s ease, padding 0.35s ease;
       margin: 0;
       padding-left: 0;
     }
 
     .abstract-content.expanded {
-      max-height: 1000px;
       margin: 8px 0;
       padding-left: 20px;
     }
@@ -174,7 +167,6 @@
       padding: 0;
     }
 
-    /* ====== NEW: Responsive behavior ====== */
     @media (max-width: 760px) {
       header {
         flex-direction: column;
@@ -194,14 +186,10 @@
 
 <body>
 
-  <!-- NEW HEADER: left sidebar + right intro -->
   <header>
     <div class="sidebar">
       <img src="Georgia Picture.jpg" alt="Tianhao Wu" class="profile-img">
-
-      <!-- Stacked name (Noah-style) -->
       <h1 class="name">Tianhao<br>Wu</h1>
-
       <p><a href="Academic Curriculum Vitae_Tianhao Wu.pdf">Curriculum Vitae</a></p>
     </div>
 
@@ -264,22 +252,42 @@
       Rebuilding After the Shock: Institutional Determinants of Social Policy Responses to COVID-19
       <br>
       (with Marysol Fernández Harvey and Joshua Fording)
-      [<button class="abstract-toggle" onclick="toggleAbstract('localgov-abstract')">abstract</button>]
+      [<button type="button" class="abstract-toggle" aria-expanded="false"
+          onclick="toggleAbstract('localgov-abstract', this)">abstract</button>]
       <div id="localgov-abstract" class="abstract-content">
         <p class="abstract-text">
-          The COVID-19 pandemic created a global, simultaneous economic shock, but social protection responses were
-          strikingly heterogeneous across countries...
+          The COVID-19 pandemic created a global, simultaneous economic shock, but social protection responses were strikingly
+          heterogeneous across countries. Countries varied not only in the size of their social protection budgets, but also in
+          the types of programs they invested in. Using data from the social spending budget of 134 countries, our analysis
+          surfaces a seemingly counterintuitive finding: While low- and middle-income countries overwhelmingly focused on income
+          protection measures, such as direct cash transfers to individuals, we find evidence of greater economic benefits from
+          spending on employment protection programs designed to keep formal workers employed. Conversely, high income countries,
+          which spent relatively more on employment protection, exhibit suggestive evidence of stronger effects from income
+          protection. Why did countries seemingly invest in mismatched policy responses? We contend that an institutional fit
+          mechanism is at play whereby state fiscal capacity, previous welfare infrastructure, and labor market organization
+          constrained governments’ social policy choices as well as mediated downstream policy effectiveness. Our findings suggest
+          that the effectiveness of pandemic social protection depended less on a single “best” instrument than on how policy
+          packages fit the fiscal and labor-market institutions into which they are introduced.
         </p>
       </div>
     </li>
 
     <li>
       Short Run Trade Adjustment to a Temporary 145 Percent U.S. Tariff on China
-      [<button class="abstract-toggle" onclick="toggleAbstract('tariff-abstract')">abstract</button>]
+      [<button type="button" class="abstract-toggle" aria-expanded="false"
+          onclick="toggleAbstract('tariff-abstract', this)">abstract</button>]
       <div id="tariff-abstract" class="abstract-content">
         <p class="abstract-text">
-          How quickly can extreme tariffs reduce targeted imports and induce short-run sourcing away from a systemic
-          supplier? ...
+          How quickly can extreme tariffs reduce targeted imports and induce short-run sourcing away from a systemic supplier?
+          This paper studies the 2025 U.S. episode that briefly raised additional duties on covered Chinese goods to about 145% and
+          then rolled them back to roughly 30% under the first 90-day truce following the Geneva Accord. Using 7.62 million
+          HS10–country–month U.S. import observations from 2023 to 2025 and the official coverage list, I estimate triple-difference
+          effects traced with event-study dynamics. The design separates the immediate break at the escalation from persistence in
+          the subsequent truce months. In June to August 2025, after the rollback, quantities and values drop sharply on impact and
+          then partially recover, but are lower on average by about 27% and 28% relative to the same HS10 codes sourced from low-tariff
+          exporters, while CIF unit values decline by about 1.7% on average. Diversification is partial and concentrates in established
+          hubs. Extreme tariffs can quickly reduce exposure to a targeted supplier, but short-run resilience gains come mainly from
+          shifting toward existing suppliers rather than building new ones.
         </p>
       </div>
     </li>
@@ -291,15 +299,32 @@
   </ul>
 
   <script>
-    function toggleAbstract(id) {
+    function toggleAbstract(id, btn) {
       const el = document.getElementById(id);
-      const btn = el.previousElementSibling;
-      const open = el.classList.toggle("expanded");
-      btn.textContent = open ? "hide abstract" : "abstract";
+      const isExpanding = !el.classList.contains("expanded");
+
+      if (isExpanding) {
+        el.classList.add("expanded");
+        // Set to actual content height so it never clips
+        el.style.maxHeight = el.scrollHeight + "px";
+        btn.textContent = "hide abstract";
+        btn.setAttribute("aria-expanded", "true");
+      } else {
+        el.classList.remove("expanded");
+        el.style.maxHeight = "0px";
+        btn.textContent = "abstract";
+        btn.setAttribute("aria-expanded", "false");
+      }
     }
+
+    // If the viewport changes, recompute heights for any open abstracts
+    window.addEventListener("resize", () => {
+      document.querySelectorAll(".abstract-content.expanded").forEach(el => {
+        el.style.maxHeight = el.scrollHeight + "px";
+      });
+    });
   </script>
 
 </body>
+
 </html>
-
-
