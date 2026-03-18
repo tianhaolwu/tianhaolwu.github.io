@@ -58,6 +58,7 @@
     .main {
       flex: 1;
       min-width: 0;
+      margin-top: 2.2em;
     }
 
     .profile-img {
@@ -125,7 +126,6 @@
       text-align: right;
     }
 
-    /* Abstract toggle styles */
     .abstract-toggle {
       color: #ffffff;
       font-style: italic;
@@ -145,10 +145,6 @@
       text-decoration: underline;
     }
 
-    /* IMPORTANT FIX:
-       - We animate max-height, but set the *actual* max-height dynamically in JS (scrollHeight),
-         so it never clips.
-    */
     .abstract-content {
       max-height: 0;
       overflow: hidden;
@@ -179,6 +175,10 @@
 
       .profile-img {
         width: clamp(160px, 55vw, 240px);
+      }
+
+      .main {
+        margin-top: 0;
       }
     }
   </style>
@@ -219,7 +219,8 @@
     </div>
   </header>
 
-<hr />
+  <hr />
+
   <script>
     function toggleAbstract(id, btn) {
       const el = document.getElementById(id);
@@ -227,7 +228,6 @@
 
       if (isExpanding) {
         el.classList.add("expanded");
-        // Set to actual content height so it never clips
         el.style.maxHeight = el.scrollHeight + "px";
         btn.textContent = "hide abstract";
         btn.setAttribute("aria-expanded", "true");
@@ -239,7 +239,6 @@
       }
     }
 
-    // If the viewport changes, recompute heights for any open abstracts
     window.addEventListener("resize", () => {
       document.querySelectorAll(".abstract-content.expanded").forEach(el => {
         el.style.maxHeight = el.scrollHeight + "px";
